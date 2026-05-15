@@ -1,0 +1,19 @@
+:root {
+  --dark: #3f3f3f;
+  --green: #2caf2c;
+  --yelow: #f5b843;
+  --red: #ff0000;
+  --gray-extra: #fbfbfb;
+  --gray-light: #f6f5f3;
+  --gray-medium: #edeceb;
+  --gray-dark: #3a3937;
+  --ground: #b2b2b2;
+  --radius: 6px;
+  --transition: 0.3s all ease;
+  --bg: #212121;
+  --white: #ffffff;
+  --dark-bg: #343432;
+  --gray-color:  #9f9f9f
+;
+}
+/*# sourceMappingURL=roots.min.css.map */

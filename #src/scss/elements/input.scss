@@ -1,0 +1,66 @@
+.input {
+    
+    &__box {
+        position: relative;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 20px;
+        font-size: 13px;
+        transition: var(--transition-small);
+        border: 1px solid transparent;
+        box-shadow: none;
+        outline: none;
+        background-color: var(--gray);
+        @media (max-width:950px) {
+            padding: 17px 20px;
+        }
+        @media (max-width:550px) {
+            font-size: 12px;
+        }
+        &::placeholder {
+            font: inherit;
+            color: inherit;
+        }
+        &:focus {
+            color: var(--base-color);
+            border-color: var(--blue);
+        }
+        @media (any-hover: hover) {&:hover {
+            color: var(--base-color);
+            border-color: var(--blue);
+            cursor: pointer;
+        }}
+    }
+
+    &.--error {
+        input, textarea {
+            border-color: red;
+            &:focus {
+                border-color: red;
+            }
+        }
+
+        .input__warning {
+            max-height: 35px;
+            padding: 10px 0;
+            @media (max-width:550px) {
+                padding: 5px 0;
+            }
+        }
+    }
+
+    &__warning {
+        overflow: hidden;
+        max-height: 0;
+        color: red;
+        font-size: 11px;
+        transition: var(--transition-small);
+        @media (max-width:550px) {
+            font-size: 10px;
+        }
+    }
+
+}

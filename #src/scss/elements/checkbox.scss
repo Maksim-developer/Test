@@ -1,0 +1,92 @@
+.checkbox {
+    position: relative;
+    display: inline-block;
+
+    &.--error {
+        .checkbox__label::before {
+            background-color: var(--white);
+                border-color: var(--hover-color);
+        }
+    }
+    
+
+    &__input {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        cursor: pointer;
+        &:checked {
+            + .checkbox__label::before {
+                border-color: var(--hover-color);
+                background-color: var(--hover-color);
+            }
+            + .checkbox__label::after {
+                transform: scale(1);
+            }
+        }
+        @media (any-hover: hover) {&:hover {
+            + .checkbox__label::before {
+                background-color: var(--hover-color);
+            }
+        }}
+    }
+
+    &__label {
+        position: relative;
+        display: block;
+        padding-left: 30px;
+        font-weight: 300;
+        font-size: 14px;
+        transition: var(--transition-small);
+        @media (max-width:1366px) {
+            font-size: 13px;
+        }
+        @media (max-width:750px) {
+            padding-left: 25px;
+            font-size: 12px;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0.05em;
+            left: 0;
+            border-radius: 3px;
+            width: 18px;
+            height: 18px;
+            border: 1px solid transparent;
+            transition: inherit;
+            @media (max-width:1366px) {
+                top: -0.05em;
+            }
+        }
+        &::before {
+            background-color: #e8e8e8;
+        }
+        &::after {
+            will-change: transform;
+            background-image: url('../img/svg/check.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 12px 9px;
+            transform: scale(0);
+        }
+    }
+
+    a {
+        position: relative;
+        z-index: 1;
+        transition: inherit;
+        text-decoration: underline;
+        font-size: inherit;
+        font-weight: 400;
+        color: #464646;
+        @media (any-hover: hover) {&:hover {
+            text-decoration-color: transparent;
+        }}
+    }
+}

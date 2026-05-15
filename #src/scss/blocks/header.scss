@@ -1,0 +1,280 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: var(--offset-right);
+    z-index: 12;
+    background-color: var(--base-color);
+    @media (max-width:1100px) {
+        display: none;
+    }
+
+    *:not(span) {
+        color: var(--white);
+    }
+
+    ul {
+        gap: 13px;
+        font-weight: 500;
+        font-size: 11px;
+        li {
+            font: inherit;
+        }
+        a {
+            @media (any-hover: hover) {&:hover {
+                color: var(--blue);
+            }}
+        }
+    }
+
+    &.--fixed {
+        backface-visibility: hidden;
+        position: fixed;
+        transform: translate3d(0, -100%, 0);
+        opacity: 0;
+        top: 0;
+        @media (max-width:750px) {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        @media (max-width:1366px) {
+            box-shadow: 0px 4px 20px 0px rgba(194, 200, 208, 0.5);
+        }
+        .header__top {
+            gap: 50px;
+            padding: 10px 0;
+            align-items: center;
+            @media (max-width:1910px) {
+                gap: 40px;
+            }
+            @media (max-width:1430px) {
+                gap: 35px;
+            }
+            @media (max-width:1250px) {
+                gap: 30px;
+            }
+            @media (max-width:950px) {
+                gap: 20px;
+            }
+            @media (max-width:750px) {
+                gap: 10px;
+            }
+
+            .good-place {
+                @media (max-width:1366px) {
+                    display: none;
+                }
+            }
+        }
+        .header__logo p {
+            @media (max-width:1610px) {
+                display: none;
+            }
+        }
+        .social {
+            gap: 10px;
+            a {
+                width: 35px;
+                height: 35px;
+                @media (max-width:1430px) {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .phone {
+            font-size: 22px;
+            @media (max-width:1610px) {
+                font-size: 20px;
+            }
+            @media (max-width:1430px) {
+                font-size: 19px;
+            }
+            @media (max-width:1250px) {
+                font-size: 18px;
+            }
+            @media (max-width:950px) {
+                font-size: 17px;
+            }
+        }
+        .logo {
+            font-size: 10px;
+            --logo: 25px;
+            letter-spacing: .89em;
+            @media (max-width:1430px) {
+                --logo: 24px;
+                letter-spacing: .88em;
+            }
+            @media (max-width:750px) {
+                font-size: 0;
+            }
+            @media (max-width:550px) {
+                --logo: 22px;
+            }
+        }
+    }
+
+    &.--active {
+        
+    }
+
+    &.--animate {
+        transition: var(--transition);
+        transition-property: transform, opacity;
+    }
+
+    &.--visible {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+    // .header__top
+    &__top {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    // .header__row
+    &__row {
+        gap: 10px 20px;
+        align-items: center;
+    }
+    
+    // .header__official
+    &__official {
+        --gap: 40px;
+        gap: var(--gap);
+    }
+    
+    // .header__dealer
+    &__dealer {
+        gap: 5px;
+        max-width: 162px;
+        font-size: 11px;
+    }
+    
+    // .header__logo
+    &__logo {
+        position: relative;
+        img {
+            width: 112px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 4px;
+            z-index: 1;
+            left: calc(-1 * var(--gap) / 2 - 0.5px);
+            width: 1px;
+            height: 22px;
+            background-color: var(--white);
+        }
+    }
+    
+    // .header__phone
+    &__phone {
+        gap: 10px;
+        font-weight: 500;
+        font-size: 15px;
+        img {
+            width: 21px;
+            flex-shrink: 0;
+        }
+    }
+    
+    // .header__location
+    &__location {
+        gap: 12px;
+        font-size: 13px;
+        span {
+            display: block;
+            font-size: 12px;
+        }
+        img {
+            flex-shrink: 0;
+            width: 17px;
+        }
+    }
+    
+    // .header__middle
+    &__middle {
+        padding: 10px 0;
+    }
+    
+    // .header__nav
+    &__nav {
+    }
+    
+    // .header__menu
+    &__menu {
+    }
+}
+
+.burger {
+    position: relative;
+    display: block;
+    width: 31px;
+    height: 31px;
+    transition: var(--transition);
+    cursor: pointer;
+
+    @media (max-width:1610px) {
+        width: 26px;
+        height: 26px;
+    }
+
+    @media (any-hover: hover) {&:hover {
+        span {
+            background-color: var(--hover-color);
+        }
+    }}
+
+    span {
+        will-change: transform;
+        display: block;
+        position: absolute;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: var(--base-color);
+        transition: inherit;
+    }
+    :nth-child(1) {
+        top: calc(50% - 10px);
+        transform: translate(-50%, 0);
+        @media (max-width:1610px) {
+            top: calc(50% - 9px);
+        }
+    }
+    :nth-child(2) {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    :nth-child(3) {
+        top: calc(50% + 8px);
+        transform: translate(-50%, 0);
+        @media (max-width:1610px) {
+            top: calc(50% + 7px);
+        }
+    }
+    &.--open {
+        :nth-child(1) {
+            transform: translate(-50%, 9px) rotate(45deg);
+            @media (max-width:1610px) {
+                transform: translate(-50%, 8px) rotate(45deg);
+            }
+        }
+        :nth-child(2) {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+        :nth-child(3) {
+            transform: translate(-50%, -9px) rotate(-45deg);
+            @media (max-width:1610px) {
+                transform: translate(-50%, -8px) rotate(-45deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,200 @@
+.input__box {
+  position: relative;
+}
+
+.input__phone {
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.2;
+  -webkit-transition: var(--transition-small);
+  transition: var(--transition-small);
+}
+
+@media (max-width: 1430px) {
+  .input__phone {
+    right: 25px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .input__phone {
+    right: 20px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .input__phone {
+    right: 17px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.input__phone svg {
+  width: 100%;
+  height: auto;
+}
+
+.input__phone svg path {
+  fill: var(--hover-color);
+}
+
+.input:has(.input__phone) input, .input textarea {
+  padding-right: 70px;
+}
+
+@media (max-width: 1430px) {
+  .input:has(.input__phone) input, .input textarea {
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .input:has(.input__phone) input, .input textarea {
+    padding-right: 40px;
+  }
+}
+
+.input input,
+.input textarea {
+  display: block;
+  width: 100%;
+  padding: 30px 40px;
+  line-height: 100%;
+  -webkit-transition: var(--transition-small);
+  transition: var(--transition-small);
+  border: 1px solid transparent;
+  border-radius: 40px;
+  background-color: var(--white);
+}
+
+@media (max-width: 1430px) {
+  .input input,
+  .input textarea {
+    padding: 25px 30px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .input input,
+  .input textarea {
+    padding: 20px 25px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .input input,
+  .input textarea {
+    padding: 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 950px) {
+  .input input,
+  .input textarea {
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 750px) {
+  .input input,
+  .input textarea {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .input input,
+  .input textarea {
+    padding: 15px;
+  }
+}
+
+.input input::-webkit-input-placeholder,
+.input textarea::-webkit-input-placeholder {
+  font: inherit;
+  color: inherit;
+}
+
+.input input:-ms-input-placeholder,
+.input textarea:-ms-input-placeholder {
+  font: inherit;
+  color: inherit;
+}
+
+.input input::-ms-input-placeholder,
+.input textarea::-ms-input-placeholder {
+  font: inherit;
+  color: inherit;
+}
+
+.input input::placeholder,
+.input textarea::placeholder {
+  font: inherit;
+  color: inherit;
+}
+
+.input input:focus,
+.input textarea:focus {
+  color: var(--base-color);
+  border-color: var(--base-color);
+}
+
+.input input:focus + .input__phone,
+.input textarea:focus + .input__phone {
+  opacity: 1;
+}
+
+.input input:focus + .input__phone svg path,
+.input textarea:focus + .input__phone svg path {
+  fill: var(--base-color);
+}
+
+@media (any-hover: hover) {
+  .input input:hover,
+  .input textarea:hover {
+    color: var(--base-color);
+    border-color: var(--base-color);
+    cursor: pointer;
+  }
+  .input input:hover + .input__phone,
+  .input textarea:hover + .input__phone {
+    opacity: 1;
+  }
+}
+
+.input.--error input, .input.--error textarea {
+  border-color: var(--site-color);
+}
+
+.input.--error input:focus, .input.--error textarea:focus {
+  border-color: var(--site-color);
+}
+
+.input.--error .input__warning {
+  max-height: 40px;
+  padding: 10px 0;
+}
+
+.input__warning {
+  overflow: hidden;
+  max-height: 0;
+  color: var(--site-color);
+  font-size: 12px;
+  -webkit-transition: var(--transition-small);
+  transition: var(--transition-small);
+}
+
+.input textarea {
+  display: block;
+  overflow-y: auto;
+  resize: none;
+  height: 107px;
+}
+/*# sourceMappingURL=input.min.css.map */

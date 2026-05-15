@@ -1,0 +1,249 @@
+.btn {
+  position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+  padding: 20px 60px;
+  font-weight: 350;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  background-color: var(--base-color);
+  color: var(--white);
+  line-height: 120%;
+  -webkit-transition: var(--transition-small);
+  transition: var(--transition-small);
+}
+
+@media (max-width: 750px) {
+  .btn {
+    gap: 10px;
+  }
+}
+
+.btn.--active {
+  pointer-events: none;
+  background-color: var(--hover-color);
+  color: var(--white);
+}
+
+.btn.-gray {
+  padding: 32px 75px;
+  background-color: #EFEFEF;
+  color: var(--base-color);
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 40px;
+}
+
+@media (max-width: 1430px) {
+  .btn.-gray {
+    padding: 30px 55px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .btn.-gray {
+    padding: 25px 40px;
+  }
+}
+
+@media (max-width: 950px) {
+  .btn.-gray {
+    padding: 22px 30px;
+    font-size: 14px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 750px) {
+  .btn.-gray {
+    padding: 20px 25px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn.-gray {
+    padding: 19px;
+  }
+}
+
+@media (max-width: 1430px) {
+  .btn {
+    padding: 20px 45px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .btn {
+    padding: 18px 40px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .btn {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .btn {
+    padding: 17px 35px;
+  }
+}
+
+@media (max-width: 950px) {
+  .btn {
+    border-radius: 25px;
+  }
+}
+
+@media (max-width: 750px) {
+  .btn {
+    padding: 17px 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn {
+    width: 100%;
+    padding: 17px 15px;
+    text-align: center;
+    line-height: 130%;
+    border-radius: 20px;
+  }
+}
+
+.btn svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  max-width: 20px;
+  height: auto;
+}
+
+@media (max-width: 750px) {
+  .btn svg {
+    max-width: 18px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn svg {
+    display: none;
+  }
+}
+
+.btn svg path {
+  stroke: var(--white);
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn:focus {
+  background-color: var(--hover-color);
+  color: var(--white);
+}
+
+@media (any-hover: hover) {
+  .btn {
+    will-change: transform;
+  }
+  .btn span {
+    will-change: transform;
+  }
+  .btn:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    background-color: var(--hover-color);
+    color: var(--white);
+  }
+}
+
+.btn[data-ripple] {
+  padding: 30px 75px;
+  font-size: 15px;
+  background-color: var(--hover-color);
+  border-radius: 40px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media (max-width: 1430px) {
+  .btn[data-ripple] {
+    padding: 22px 55px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .btn[data-ripple] {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .btn[data-ripple] {
+    padding: 20px 40px;
+  }
+}
+
+@media (max-width: 950px) {
+  .btn[data-ripple] {
+    padding: 18px 20px;
+    font-size: 13px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn[data-ripple] {
+    padding: 15px;
+  }
+}
+
+.btn[data-ripple] em {
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  z-index: 0;
+}
+
+.btn[data-ripple] em.--animate {
+  -webkit-animation: ripple 0.95s linear;
+          animation: ripple 0.95s linear;
+}
+
+@-webkit-keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+  }
+}
+
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+  }
+}
+/*# sourceMappingURL=btn.min.css.map */

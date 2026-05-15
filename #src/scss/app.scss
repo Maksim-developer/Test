@@ -1,0 +1,24 @@
+@use "reset/roots.scss";
+
+@use "reset/null.scss";
+@use "reset/template.scss";
+
+@use "reset/main.scss";
+
+
+@use "elements/link.scss";
+@use "elements/input.scss";
+@use "elements/btn.scss";
+@use "elements/open-chat.scss";
+
+
+@use "blocks/header.scss";
+@use "blocks/timer.scss";
+@use "blocks/product.scss";
+@use "blocks/modals.scss";
+
+
+
+
+@use "components/home.scss";
+@use "components/main-product.scss";

@@ -1,0 +1,47 @@
+.link {
+    display: inline-flex;
+    transition: var(--transition-small);
+    @media (max-width:950px) {
+        font-size: 15px;
+    }
+    @media (max-width:550px) {
+        font-size: 14px;
+    }
+    span {
+        position: relative;
+        transition: inherit;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: inherit;
+        }
+    }
+    svg {
+        flex-shrink: 0;
+        max-width: 20px;
+        margin-left: 15px;
+        height: auto;
+        @media (max-width:950px) {
+            max-width: 18px;
+        }
+        @media (max-width:550px) {
+            max-width: 15px;
+            margin-left: 10px;
+        }
+    }
+    @media (any-hover: hover) {&:hover {
+        span::before {
+            width: 100%;
+        }
+        svg {
+            path {
+                fill: var(--hover-color);
+            }
+        }
+    }}
+}
