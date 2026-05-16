@@ -413,14 +413,6 @@ window.onload = function () {
     const header = document.querySelector('.header');
     const menu = this.document.querySelector('.header__middle');
 
-
-    let customDistance = 600;
-    const scrollTarget = document.querySelector('[data-header]');
-
-    if (scrollTarget) {
-        customDistance = scrollTarget.offsetHeight;
-    }
-
     const headerOpen = () => {
         blockScroll()
         helpers.activeState(header, "--active");
