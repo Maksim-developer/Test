@@ -6,7 +6,7 @@
     z-index: 12;
     background-color: var(--base-color);
     @media (max-width:1100px) {
-        
+        position: fixed;
     }
 
     *:not(span) {
@@ -38,28 +38,6 @@
                 color: var(--blue);
             }}
         }
-    }
-
-    &.--fixed {
-        backface-visibility: hidden;
-        position: fixed;
-        transform: translate3d(0, -100%, 0);
-        opacity: 0;
-        top: 0;
-    }
-
-    &.--active {
-        
-    }
-
-    &.--animate {
-        transition: var(--transition);
-        transition-property: transform, opacity;
-    }
-
-    &.--visible {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
     }
 
     // .header__top

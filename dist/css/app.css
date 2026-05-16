@@ -784,6 +784,11 @@ h3 {
   z-index: 12;
   background-color: var(--base-color);
 }
+@media (max-width: 1100px) {
+  .header {
+    position: fixed;
+  }
+}
 .header *:not(span) {
   color: var(--white);
 }
@@ -823,28 +828,6 @@ h3 {
   .header ul a:hover {
     color: var(--blue);
   }
-}
-.header.--fixed {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  position: fixed;
-  -webkit-transform: translate3d(0, -100%, 0);
-          transform: translate3d(0, -100%, 0);
-  opacity: 0;
-  top: 0;
-}
-.header.--animate {
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  -webkit-transition-property: opacity, -webkit-transform;
-  transition-property: opacity, -webkit-transform;
-  transition-property: transform, opacity;
-  transition-property: transform, opacity, -webkit-transform;
-}
-.header.--visible {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  opacity: 1;
 }
 .header__top {
   padding: 15px 0;

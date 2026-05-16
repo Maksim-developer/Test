@@ -469,48 +469,13 @@ window.onload = function () {
 
     headerSize()
 
-    // Fixed header start ..............................
-    const headerScroll = () => {
-
-        if (customDistance && body.offsetHeight > window.innerHeight + header.offsetHeight) {
-
-            const scrollDistance = window.scrollY;
-
-            if (scrollDistance > customDistance) {
-                helpers.activeState(header, '--fixed');
-                headerScrollSize()
-                setTimeout(() => {
-                    helpers.activeState(header, '--animate');
-                    helpers.activeState(header, '--visible');
-                }, 100);
-            } else {
-
-                helpers.removeState(header, '--visible');
-                setTimeout(() => {
-                    helpers.removeState(header, '--animate');
-                    helpers.removeState(header, '--fixed');
-                }, 100);
-            }
-        }
-
-    }
-    headerScroll()
-    // Fixed header end ..............................
-
-
-
-    window.addEventListener('scroll', () => {
-        helpers.debounce(headerScroll, 50)
-    });
 
     window.addEventListener('resize', (e) => {
         helpers.debounce(headerSize, 100)
-        helpers.debounce(headerScroll, 100)
     });
 
     window.addEventListener('orientationchange', (e) => {
         helpers.debounce(headerSize, 100)
-        helpers.debounce(headerScroll, 100)
     });
 
 
