@@ -410,10 +410,8 @@ window.onload = function () {
         })(),
     }
 
-    const header = document.querySelector('.header'),
-        menu = header.querySelector('.header__menu'),
-        headerTrigger = header.querySelector('.header__trigger'),
-        headerOverlay = header.querySelector('.header__overlay');
+    const header = document.querySelector('.header');
+    const menu = this.document.querySelector('.header__middle');
 
 
     let customDistance = 600;
@@ -433,95 +431,30 @@ window.onload = function () {
         helpers.removeState(header, '--active');
         helpers.removeState(menu, '--active');
     }
+
     const headerChange = (e) => {
-        if (window.innerWidth > 1251) {
+        if (window.innerWidth > 1100) return;
+        if (!e || !e.target) return;
+
+        const burger = e.target.closest('.burger');
+
+        if (burger) {
+            burger.classList.toggle('--open');
+            headerState = !headerState;
+            if (headerState) headerOpen();
+            else headerClose();
             return;
         }
 
-
-        if (e) {
-            const burger = e.target.closest('.burger');
-            if (burger) {
-                burger.classList.toggle('--open');
-                headerState = !headerState;
-            }
-        }
-
-        if (headerState) {
-            headerOpen();
-        } else {
+        if (!menu || !menu.contains(e.target)) {
+            headerState = false;
             headerClose();
         }
-
-        if (e && headerTrigger && headerOverlay) {
-
-            if (e.target === headerTrigger) {
-                helpers.activeState(headerTrigger.parentNode, '--visible');
-                blockScroll();
-            }
-
-            if (e.target === headerOverlay || e.target.closest('.header__btn')) {
-                helpers.removeState(headerTrigger.parentNode, '--visible');
-                if (!headerState) removeScroll();
-            }
-        }
-    }
-
-    header.addEventListener('click', headerChange);
+    };
 
 
-    // Work mobile menu start ..............................
-    const hideMenu = () => {
-        const menu = document.querySelectorAll('.menu-drop');
-        menu.forEach(item => {
+    document.addEventListener('click', headerChange);
 
-            if (!item) {
-                return;
-            }
-
-            item.style.setProperty('--drop-full', item.scrollHeight + 'px');
-
-            const itemLink = item.firstElementChild;
-
-            if (!itemLink) {
-                return;
-            }
-
-            item.style.setProperty('--drop-first', itemLink.offsetHeight + 'px');
-
-        });
-    }
-    hideMenu()
-
-    const menuChange = (e) => {
-        const menuItem = e.target.closest('.menu-drop');
-
-        this.document.querySelectorAll('.menu-drop').forEach(element => {
-            if (element !== menuItem && helpers.hasClass(element, '--active')) {
-                helpers.removeState(element, '--active');
-                helpers.removeState(element, '--unlock');
-            }
-        });
-
-        if (!menuItem) {
-            return;
-        }
-
-
-        if (e.target.closest('.menu-drop__arrow')) {
-            menuItem.classList.toggle('--active')
-        } else {
-            helpers.activeState(menuItem, '--active')
-        }
-
-
-        setTimeout(() => {
-            helpers.activeState(menuItem, '--unlock');
-        }, 300);
-
-    }
-    this.document.addEventListener('click', menuChange)
-    // Work mobile menu end ..............................
 
     // Init header size start ..............................
     const headerSize = () => {
@@ -535,8 +468,6 @@ window.onload = function () {
     // Init header size start ..............................
 
     headerSize()
-
-    console.log(body.offsetHeight)
 
     // Fixed header start ..............................
     const headerScroll = () => {
@@ -565,6 +496,7 @@ window.onload = function () {
     }
     headerScroll()
     // Fixed header end ..............................
+
 
 
     window.addEventListener('scroll', () => {
